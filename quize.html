@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSim - Ecosystem Simulation</title>
+    <link rel="stylesheet" href="quize.css">
+</head>
+<body>
+    <div class="game-container">
+        <!-- หน้าแรก -->
+        <div id="welcome-screen">
+            <div class="header">
+                <button class="back-btn">BACK</button>
+                <button class="finish-btn" onclick="showScore()">เสร็จสิ้น</button>
+                <h1>แบบฝึกหัด</h1>
+                <h3>เมื่อตอบคำถามเเล้วรอ 5 วินาทีเพื่อไปข้อถัดไป</h3>
+            </div>
+            
+            <div class="ecosystem-scene">
+                <div class="mountains"></div>
+                <div class="trees"></div>
+            </div>
+            
+            <div class="question-section">
+                <button class="practice-btn" onclick="startPractice()">เริ่มทำแบบฝึกหัด</button>
+            </div>
+        </div>
+
+        <!-- หน้าแบบฝึกหัด -->
+        <div id="practice-screen" class="hidden">
+            <div class="header">
+                <div class="page-indicator">📖 <span id="current-question">1</span> จาก <span id="total-questions">10</span></div>
+                <button class="finish-btn" onclick="showScore()">เสร็จสิ้น</button>
+                <h1>แบบฝึกหัด</h1>
+            </div>
+
+            <div class="quiz-section">
+                <div class="quiz-question" id="question-text">
+                    สิ่งมีชีวิตที่ผลิตอาหารได้เองโดยใช้แสงแดดเรียกว่าอะไร?
+                </div>
+                <div class="answer-buttons">
+                    <button class="answer-btn" onclick="selectAnswer(0)">ผู้ผลิต</button>
+                    <button class="answer-btn" onclick="selectAnswer(1)">ผู้บริโภค</button>
+                </div>
+                <div id="feedback" class="feedback hidden"></div>
+            </div>
+        </div>
+
+        <!-- หน้าแสดงคะแนน -->
+        <div id="score-screen" class="hidden">
+            <div class="score-section">
+                <h2>สรุป</h2>
+                <div class="score-display">คะแนนที่ได้: <span id="final-score">0</span>/10</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div>
+                    <button class="restart-btn" onclick="resetGame()">ทำใหม่อีกครั้ง</button>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="answer-btn" onclick="goHome()">กลับหน้าหลัก</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="quize.js"></script>
+</body>
+</html>

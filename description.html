@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSim - Ecosystem Simulation</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="description.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Home Button -->
+        <a href="index.html" class="home-button">HOME</a>
+        
+        <!-- Clouds -->
+        <div class="clouds">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+        </div>
+
+        <!-- Header -->
+        <div class="ecosystem-header">
+            <h1>ระบบนิเวศ (Ecosystem) คืออะไร?</h1>
+            <p>ระบบนิเวศหมายถึงชุมชนของสิ่งมีชีวิตต่าง ๆ ที่อยู่ร่วมกันในสภาพแวดล้อมหนึ่ง และมีการแลกเปลี่ยนพลังงานและสารอาหารระหว่างกัน<br>
+            ซึ่งประกอบด้วยสิ่งมีชีวิต (Biotic Components) และสิ่งไม่มีชีวิต (Abiotic Components)</p>
+            
+            <h2>โครงสร้างของระบบนิเวศ</h2>
+            <p style="font-size: 1em; background: rgba(255, 255, 255, 0.8); padding: 15px; border-radius: 10px; max-width: 600px;">ความสัมพันธ์ของสิ่งมีชีวิต ตามบทบาทหน้าที่ แบ่งออกเป็น</p>
+        </div>
+
+        <!-- Ecosystem Components -->
+        <div class="ecosystem-components">
+            <div class="component">
+                <h3>1.ผู้ผลิต (Producers)</h3>
+                <div class="component-icon producers-icon" onclick="showModal('producers')">
+                    🌱
+                </div>
+                <div class="component-description">
+                    สิ่งมีชีวิตที่สร้างอาหารเอง<br>จากแสงแดดและสารอนินทรีย์<br>ทางการสังเคราะห์แสง (Photosynthesis)
+                </div>
+                <ul class="component-list">
+                    <li>🌿 ต้นไผ่</li>
+                    <li>🌳 ต้นยูคาลิปตัส</li>
+                    <li>🌾 หญ้า</li>
+                </ul>
+            </div>
+
+            <div class="component">
+                <h3>2.ผู้บริโภค (Consumers)</h3>
+                <div class="component-icon consumers-icon" onclick="showModal('consumers')">
+                    🐰
+                </div>
+                <div class="component-description">
+                    สิ่งมีชีวิตที่กินสิ่งมีชีวิตอื่น<br>เป็นอาหาร
+                </div>
+                <ul class="component-list">
+                    <li>🦎 ผู้บริโภคขั้นที่ 1 (ปฐมภูมิ) เช่น กิ้งก่า หอย</li>
+                    <li>🐦 ผู้บริโภคขั้นที่ 2 (ทุติยภูมิ) เช่น นก แมลง</li>
+                    <li>🐍 ผู้บริโภคขั้นที่ 3 (ตติยภูมิ) เช่น งู เหยี่ยว</li>
+                </ul>
+            </div>
+
+            <div class="component">
+                <h3>3.ผู้ย่อยสลาย (Decomposers)</h3>
+                <div class="component-icon decomposers-icon" onclick="showModal('decomposers')">
+                    🍄
+                </div>
+                <div class="component-description">
+                    สิ่งมีชีวิตที่ย่อยสลายซากของ<br>สิ่งมีชีวิตที่ตายแล้วให้เป็นสารอนินทรีย์<br>และคืนกลับสู่ดินและน้ำ
+                </div>
+                <ul class="component-list">
+                    <li>🦠 แบคทีเรีย</li>
+                    <li>🍄 เชื้อรา</li>
+                    <li>🪱 ไส้เดือน</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Landscape Background -->
+        <div class="landscape">
+            <div class="landscape-trees">
+                <div class="landscape-tree landscape-tree1"></div>
+                <div class="landscape-tree landscape-tree2"></div>
+                <div class="landscape-tree landscape-tree3"></div>
+                <div class="landscape-tree landscape-tree4"></div>
+            </div>
+            <div class="house"></div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="nav-buttons">
+            <button class="nav-button" onclick="showNextPage()">NEXT</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="explanationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-controls">
+                <button class="speak-button" onclick="speakText()" id="speakBtn">🔊 อ่านออกเสียง</button>
+            </div>
+        </div>
+    </div>
+    <script src="description.js"></script>
+</body>
+</html>

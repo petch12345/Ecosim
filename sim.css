@@ -1,0 +1,936 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #87CEEB 0%, #98FB98 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2E7D32;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    height: 600px;
+}
+
+.left-panel {
+    width: 300px;
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.9);
+    box-sizing: border-box;
+}
+
+.form-group input[type="number"]:focus {
+    outline: none;
+    background: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* สไตล์สำหรับ Range Slider */
+.slider-container {
+    margin-bottom: 20px;
+}
+
+.slider-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.slider-value {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FFD700;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FFD700;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slider.water-slider::-webkit-slider-thumb {
+    background: #4FC3F7;
+}
+
+.slider.water-slider::-moz-range-thumb {
+    background: #4FC3F7;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-start {
+    background: #FF6B35;
+    color: white;
+}
+
+.btn-start:hover {
+    background: #FF5722;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+.btn-reset {
+    background: #607D8B;
+    color: white;
+}
+
+.btn-reset:hover {
+    background: #546E7A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(96, 125, 139, 0.4);
+}
+
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ecosystem-bg {
+    width: 100%;
+    height: 480px;
+    background: linear-gradient(135deg, #87CEEB 0%, #98FB98 100%);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ecosystem-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* หญ้า */
+.grass {
+    position: absolute;
+    width: 6px;
+    height: 20px;
+    background: #228B22;
+    border-radius: 3px 3px 0 0;
+    transform-origin: bottom center;
+    animation: grassSway 3s ease-in-out infinite;
+}
+
+.grass:before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -1px;
+    width: 8px;
+    height: 12px;
+    background: #32CD32;
+    border-radius: 4px 4px 0 0;
+}
+
+/* กระต่าย */
+.rabbit {
+    position: absolute;
+    width: 20px;
+    height: 16px;
+    background: #D2691E;
+    border-radius: 50%;
+    animation: rabbitHop 4s ease-in-out infinite;
+}
+
+.rabbit:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 3px;
+    width: 5px;
+    height: 12px;
+    background: #D2691E;
+    border-radius: 3px 3px 0 0;
+    box-shadow: 8px 0 0 #D2691E;
+}
+
+.rabbit:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: -5px;
+    width: 6px;
+    height: 6px;
+    background: #F5DEB3;
+    border-radius: 50%;
+}
+
+/* หมาป่า */
+.wolf {
+    position: absolute;
+    width: 32px;
+    height: 18px;
+    background: linear-gradient(135deg, #4A4A4A 0%, #2F2F2F 100%);
+    border-radius: 16px 16px 8px 8px;
+    animation: wolfProwl 6s ease-in-out infinite;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* หัวหมาป่า */
+.wolf:before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 2px;
+    width: 18px;
+    height: 14px;
+    background: linear-gradient(135deg, #4A4A4A 0%, #2F2F2F 100%);
+    border-radius: 9px 9px 4px 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* หาง หู และจมูกหมาป่า */
+.wolf:after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 16px;
+    width: 4px;
+    height: 8px;
+    background: #1F1F1F;
+    border-radius: 2px 2px 0 0;
+    box-shadow: 
+        -12px 2px 0 1px #1F1F1F, /* จมูก */
+        -8px -2px 0 1px #4A4A4A, /* หูซ้าย */
+        -4px -2px 0 1px #4A4A4A, /* หูขวา */
+        12px 8px 0 2px #2F2F2F; /* หาง */
+}
+
+/* เพิ่มตาหมาป่า */
+.wolf::after {
+    box-shadow: 
+        -12px 2px 0 1px #1F1F1F, /* จมูก */
+        -8px -2px 0 1px #4A4A4A, /* หูซ้าย */
+        -4px -2px 0 1px #4A4A4A, /* หูขวา */
+        12px 8px 0 2px #2F2F2F, /* หาง */
+}
+
+/* แอ่งน้ำ */
+.water-pond {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    height: 35px;
+    background: #4FC3F7;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: waterRipple 3s ease-in-out infinite;
+}
+
+.water-pond:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 14px;
+    width: 142px;
+    height: 25px;
+    background: #81D4FA;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+/* ป้ายกำกับ */
+.label {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    color: #2E7D32;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.label.grass-label {
+    background: rgba(76, 175, 80, 0.9);
+    color: white;
+}
+
+.label.rabbit-label {
+    background: #D2691E;
+    color: white;
+}
+
+.label.wolf-label {
+    background: linear-gradient(135deg, #4A4A4A 0%, #2F2F2F 100%);;
+    color: white;
+}
+
+/* ปรับขนาดดวงอาทิตย์ */
+.sun {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 35px;
+    height: 35px;
+    background: #FFD700;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: sunShine 2s ease-in-out infinite;
+}
+
+.sun:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px; /* เพิ่มขนาดจาก 35px */
+    height: 50px;
+    background: radial-gradient(circle, transparent 40%, #FFD700 40%, #FFD700 45%, transparent 45%);
+    border-radius: 50%;
+    animation: sunRays 4s linear infinite;
+}
+
+/* ปรับการเคลื่อนไหว */
+@keyframes rabbitHop {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); } /* เพิ่มความสูงการกระโดด */
+}
+
+@keyframes wolfProwl {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(15px); } /* เพิ่มระยะการเคลื่อนไหว */
+}
+
+@keyframes waterRipple {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.7; }
+    50% { transform: translateX(-50%) scale(1.15); opacity: 0.9; } /* เพิ่มการขยาย */
+}
+
+@keyframes grassSway {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+@keyframes sunShine {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes sunRays {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.simulation-status {
+    background: #E8F5E8;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #4CAF50;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.simulation-status h3 {
+    margin: 0 0 10px 0;
+    color: #2E7D32;
+    font-size: 18px;
+}
+
+.status-text {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+.chart-container {
+    position: relative;
+    height: 550px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.simulation-results {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    background: #f0f8ff;
+    border-radius: 8px;
+    border: 1px solid #4CAF50;
+}
+
+.result-item {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #2E7D32;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #f44336;
+}
+
+.next-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+.next-btn.active {
+    display: block;
+}
+
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-btn, .home-btn {
+    margin: 10px 5px;
+    padding: 12px 24px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover, .home-btn:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+/* Media Queries สำหรับ Responsive Design */
+/* Tablet Portrait และ Mobile Landscape */
+@media (max-width: 1024px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .header {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+    
+    .left-panel {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+    
+    .right-panel {
+        width: 100%;
+        gap: 15px;
+    }
+    
+    .ecosystem-bg {
+        height: 350px;
+    }
+    
+    .chart-container {
+        height: 300px;
+        padding: 15px;
+    }
+    
+    .sub-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .back-btn, .home-btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+/* Mobile Portrait */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 10px;
+        border-radius: 15px;
+    }
+    
+    .header {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .main-content {
+        gap: 10px;
+    }
+    
+    .left-panel {
+        padding: 12px;
+        border-radius: 10px;
+    }
+    
+    .form-group {
+        margin-bottom: 12px;
+    }
+    
+    .form-group label {
+        font-size: 13px;
+    }
+    
+    .form-group input[type="number"] {
+        padding: 8px;
+        font-size: 13px;
+    }
+    
+    .slider-container {
+        margin-bottom: 15px;
+    }
+    
+    .slider-label {
+        font-size: 13px;
+    }
+    
+    .slider-value {
+        font-size: 11px;
+    }
+    
+    .btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .ecosystem-bg {
+        height: 280px;
+        border-radius: 10px;
+    }
+    
+    .chart-container {
+        height: 250px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+    
+    .simulation-status {
+        padding: 12px;
+        border-radius: 8px;
+    }
+    
+    .simulation-status h3 {
+        font-size: 16px;
+    }
+    
+    .status-text {
+        font-size: 13px;
+    }
+    
+    .result-item {
+        font-size: 13px;
+    }
+    
+    .next-btn {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    .back-btn, .home-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    /* ปรับขนาดองค์ประกอบในระบบนิเวศสำหรับมือถือ */
+    .sun {
+        width: 25px;
+        height: 25px;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .sun:before {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .water-pond {
+        width: 50px;
+        height: 25px;
+        bottom: 15px;
+    }
+    
+    .grass {
+        width: 4px;
+        height: 15px;
+    }
+    
+    .rabbit {
+        width: 16px;
+        height: 12px;
+    }
+    
+    .rabbit:before {
+        width: 4px;
+        height: 9px;
+        top: -8px;
+        left: 2px;
+        box-shadow: 6px 0 0 #D2691E;
+    }
+    
+    .rabbit:after {
+        width: 5px;
+        height: 5px;
+        right: -4px;
+    }
+    
+    .wolf {
+        width: 24px;
+        height: 14px;
+    }
+    
+    .wolf:before {
+        width: 14px;
+        height: 10px;
+        top: -9px;
+        left: 2px;
+    }
+    
+    .wolf:after {
+        width: 3px;
+        height: 6px;
+        top: -6px;
+        left: 12px;
+        box-shadow: 
+            -9px 2px 0 1px #1F1F1F, /* จมูก */
+            -6px -2px 0 1px #4A4A4A, /* หูซ้าย */
+            -3px -2px 0 1px #4A4A4A, /* หูขวา */
+            9px 6px 0 2px #2F2F2F, /* หาง */
+    }
+    
+    .label {
+        font-size: 10px;
+        padding: 1px 6px;
+    }
+}
+
+/* Mobile Portrait เล็ก */
+@media (max-width: 480px) {
+    .container {
+        padding: 8px;
+        border-radius: 10px;
+    }
+    
+    .header {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .left-panel {
+        padding: 10px;
+    }
+    
+    .form-group {
+        margin-bottom: 10px;
+    }
+    
+    .form-group label {
+        font-size: 12px;
+    }
+    
+    .form-group input[type="number"] {
+        padding: 6px;
+        font-size: 12px;
+    }
+    
+    .slider-container {
+        margin-bottom: 12px;
+    }
+    
+    .slider-label {
+        font-size: 12px;
+    }
+    
+    .slider-value {
+        font-size: 10px;
+    }
+    
+    .btn {
+        padding: 8px;
+        font-size: 13px;
+    }
+    
+    .ecosystem-bg {
+        height: 240px;
+    }
+    
+    .chart-container {
+        height: 220px;
+        padding: 8px;
+    }
+    
+    .simulation-status {
+        padding: 10px;
+    }
+    
+    .simulation-status h3 {
+        font-size: 14px;
+    }
+    
+    .status-text {
+        font-size: 12px;
+    }
+    
+    .result-item {
+        font-size: 12px;
+    }
+    
+    .next-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    
+    .back-btn, .home-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    /* ปรับขนาดองค์ประกอบให้เล็กลงอีกสำหรับหน้าจอเล็ก */
+    .sun {
+        width: 20px;
+        height: 20px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .sun:before {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .water-pond {
+        width: 40px;
+        height: 20px;
+        bottom: 10px;
+    }
+    
+    .grass {
+        width: 3px;
+        height: 12px;
+    }
+    
+    .rabbit {
+        width: 12px;
+        height: 10px;
+    }
+    
+    .rabbit:before {
+        width: 3px;
+        height: 7px;
+        top: -6px;
+        left: 2px;
+        box-shadow: 4px 0 0 #D2691E;
+    }
+    
+    .rabbit:after {
+        width: 4px;
+        height: 4px;
+        right: -3px;
+    }
+    
+    .wolf {
+        width: 20px;
+        height: 12px;
+    }
+    
+    .wolf:before {
+        width: 12px;
+        height: 8px;
+        top: -8px;
+        left: 1px;
+    }
+    
+    .wolf:after {
+        width: 2px;
+        height: 5px;
+        top: -5px;
+        left: 10px;
+        box-shadow: 
+            -8px 1px 0 1px #1F1F1F, /* จมูก */
+            -5px -1px 0 1px #4A4A4A, /* หูซ้าย */
+            -3px -1px 0 1px #4A4A4A, /* หูขวา */
+            8px 5px 0 1px #2F2F2F, /* หาง */
+    }
+    
+    .label {
+        font-size: 9px;
+        padding: 1px 4px;
+    }
+}
+
+/* แนวนอน (Landscape) สำหรับมือถือ */
+@media (max-width: 768px) and (orientation: landscape) {
+    .main-content {
+        flex-direction: row;
+        height: auto;
+    }
+    
+    .left-panel {
+        width: 350px;
+        height: auto;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    .ecosystem-bg {
+        height: 300px;
+    }
+    
+    .chart-container {
+        height: 250px;
+    }
+}
+
+/* ปรับให้ Chart.js responsive */
+@media (max-width: 768px) {
+    .chart-container canvas {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}

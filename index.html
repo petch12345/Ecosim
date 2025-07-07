@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSim - Ecosystem Simulation</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-menu">
+                <a href="index.html" class="nav-item">EcoSim</a>
+                <a href="description.html" class="nav-item">คำอธิบาย</a>
+                <a href="how2use.html" class="nav-item">วิธีการใช้งาน</a>
+                <a href="sim.html" class="nav-item">การจำลอง</a>
+                <a href="quize.html" class="nav-item">แบบฝึกหัด</a>
+            </div>
+        </nav>
+
+        <!-- Forest Background -->
+        <div class="forest-bg">
+            <div class="trees">
+                <div class="tree tree1"></div>
+                <div class="tree tree2"></div>
+                <div class="tree tree3"></div>
+                <div class="tree tree4"></div>
+            </div>
+            
+            <!-- Floating particles -->
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="welcome-text">
+                <h1>Welcome to EcoSim</h1>
+                <p class="description">
+                    EcoSim คือเว็บไซต์ตัวอย่างระบบนิเวศที่ให้ผู้เรียน
+                    ปรับค่าต่าง ๆ แล้วส่งผลทดลองหลากหลายวิธีและดูผลเปลี่ยน
+                    พร้อมทำความเข้าใจและเรียนรู้เกี่ยวกับเพื่อเรียนรู้อย่าง
+                    สนุกและมีประสิทธิภาพ
+                </p>
+            </div>
+            
+            <button class="start-button" onclick="startSimulation()">
+                START
+            </button>
+        </div>
+
+        <!-- Ground -->
+        <div class="ground">
+            <div class="grass"></div>
+            <div class="mushroom mushroom1"></div>
+            <div class="mushroom mushroom2"></div>
+            <div class="rabbit"></div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

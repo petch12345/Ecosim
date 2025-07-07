@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tahoma', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #8BC34A, #689F38);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    min-height: 600px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #8BC34A, #689F38);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: white;
+    color: #8BC34A;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.home-btn {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+    background: #45a049;
+}
+
+/* Content Area */
+.content {
+    padding: 100px 40px 40px 40px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,80 Q30,70 40,80 T60,80 T80,80" stroke="%23C8E6C9" stroke-width="2" fill="none"/><circle cx="85" cy="15" r="3" fill="%23C8E6C9"/><circle cx="15" cy="25" r="2" fill="%23C8E6C9"/><path d="M10,90 L15,85 L20,90 L25,85 L30,90" stroke="%23C8E6C9" stroke-width="1" fill="none"/></svg>') repeat;
+    background-size: 200px 200px;
+    position: relative;
+}
+
+.content h2 {
+    color: #2E7D32;
+    font-size: 22px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+.content-text {
+    color: #424242;
+    line-height: 1.8;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border-left: 4px solid #4CAF50;
+}
+
+.step-list {
+    list-style: none;
+    padding: 0;
+}
+
+.step-item {
+    background: rgba(255, 255, 255, 0.9);
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 15px;
+    border-left: 5px solid #4CAF50;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    background: #4CAF50;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.step-text {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 50px);
+    color: #2E7D32;
+    font-weight: 500;
+}
+
+/* Next Button */
+.next-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.next-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Decorative elements */
+.grass-decoration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M0,20 Q10,5 20,20 Q30,5 40,20 Q50,5 60,20 Q70,5 80,20 Q90,5 100,20" fill="%23C8E6C9"/></svg>') repeat-x;
+    background-size: 100px 20px;
+}
+
+.floating-leaves {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    font-size: 20px;
+    color: #C8E6C9;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+}

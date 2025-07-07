@@ -1,0 +1,276 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, 
+        #87CEEB 0%,     /* ฟ้าใส */
+        #98FB98 30%,    /* เขียวอ่อน */
+        #90EE90 50%,    /* เขียวใส */
+        #228B22 70%,    /* เขียวเข้ม */
+        #006400 100%    /* เขียวเข้มมาก */
+    );
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><radialGradient id="cloud1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:white;stop-opacity:0.8"/><stop offset="100%" style="stop-color:white;stop-opacity:0.3"/></radialGradient><radialGradient id="cloud2" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:white;stop-opacity:0.6"/><stop offset="100%" style="stop-color:white;stop-opacity:0.2"/></radialGradient></defs><ellipse cx="200" cy="100" rx="80" ry="40" fill="url(%23cloud1)"/><ellipse cx="170" cy="90" rx="60" ry="30" fill="url(%23cloud1)"/><ellipse cx="230" cy="95" rx="50" ry="25" fill="url(%23cloud1)"/><ellipse cx="800" cy="120" rx="100" ry="50" fill="url(%23cloud2)"/><ellipse cx="770" cy="110" rx="70" ry="35" fill="url(%23cloud2)"/><ellipse cx="830" cy="115" rx="60" ry="30" fill="url(%23cloud2)"/><ellipse cx="1000" cy="80" rx="90" ry="45" fill="url(%23cloud1)"/><ellipse cx="970" cy="70" rx="65" ry="32" fill="url(%23cloud1)"/></svg>') no-repeat;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.game-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.08);
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.header {
+    background: linear-gradient(135deg, #2E7D32, #388E3C, #4CAF50);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.page-indicator {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    background: rgba(255,255,255,0.2);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.back-btn {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.finish-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: #FF9800;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.finish-btn:hover {
+    background: #F57C00;
+}
+
+.ecosystem-scene {
+    background: linear-gradient(to bottom, 
+        #87CEEB 0%,     /* ฟ้าใส */
+        #98FB98 40%,    /* เขียวอ่อน */
+        #90EE90 60%,    /* เขียวใส */
+        #228B22 80%,    /* เขียวเข้ม */
+        #006400 100%    /* เขียวเข้มมาก */
+    );
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
+
+.trees {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120"><defs><radialGradient id="tree1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23228B22;stop-opacity:1"/><stop offset="100%" style="stop-color:%23006400;stop-opacity:0.8"/></radialGradient><radialGradient id="tree2" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%2332CD32;stop-opacity:1"/><stop offset="100%" style="stop-color:%23228B22;stop-opacity:0.8"/></radialGradient><linearGradient id="trunk" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%23D2691E;stop-opacity:1"/><stop offset="100%" style="stop-color:%23A0522D;stop-opacity:1"/></linearGradient></defs><rect x="25" y="80" width="15" height="40" fill="url(%23trunk)"/><circle cx="32" cy="70" r="22" fill="url(%23tree1)"/><circle cx="28" cy="65" r="15" fill="url(%23tree2)"/><rect x="120" y="70" width="18" height="50" fill="url(%23trunk)"/><circle cx="129" cy="60" r="28" fill="url(%23tree1)"/><circle cx="125" cy="55" r="18" fill="url(%23tree2)"/><rect x="230" y="85" width="12" height="35" fill="url(%23trunk)"/><circle cx="236" cy="75" r="20" fill="url(%23tree1)"/><circle cx="232" cy="70" r="13" fill="url(%23tree2)"/><rect x="350" y="75" width="16" height="45" fill="url(%23trunk)"/><circle cx="358" cy="65" r="25" fill="url(%23tree1)"/><circle cx="354" cy="60" r="16" fill="url(%23tree2)"/><rect x="480" y="80" width="14" height="40" fill="url(%23trunk)"/><circle cx="487" cy="70" r="23" fill="url(%23tree1)"/><circle cx="483" cy="65" r="14" fill="url(%23tree2)"/></svg>') no-repeat center bottom;
+    background-size: cover;
+}
+
+.mountains {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 80"><defs><linearGradient id="mountain1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%23708090;stop-opacity:0.6"/><stop offset="100%" style="stop-color:%23556B2F;stop-opacity:0.4"/></linearGradient><linearGradient id="mountain2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%23778899;stop-opacity:0.5"/><stop offset="100%" style="stop-color:%23556B2F;stop-opacity:0.3"/></linearGradient></defs><polygon points="0,80 100,20 200,80" fill="url(%23mountain1)"/><polygon points="150,80 280,10 400,80" fill="url(%23mountain2)"/><polygon points="350,80 450,30 550,80" fill="url(%23mountain1)"/><polygon points="500,80 600,40 600,80" fill="url(%23mountain2)"/></svg>') no-repeat center bottom;
+    background-size: cover;
+}
+
+.question-section {
+    padding: 30px;
+    text-align: center;
+}
+
+.question-title {
+    font-size: 18px;
+    color: #2E7D32;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.practice-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+.practice-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.quiz-section {
+    padding: 30px;
+    text-align: center;
+}
+
+.quiz-question {
+    font-size: 18px;
+    color: #2E7D32;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.answer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.answer-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.answer-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.answer-btn.correct {
+    background: #2E7D32;
+}
+
+.answer-btn.incorrect {
+    background: #F44336;
+}
+
+.score-section {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    padding: 30px;
+    text-align: center;
+    color: #333;
+}
+
+.score-display {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    background: rgba(255,255,255,0.3);
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-fill {
+    background: #4CAF50;
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.restart-btn {
+    background: #2E7D32;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.restart-btn:hover {
+    background: #1B5E20;
+}
+
+.hidden {
+    display: none;
+}
+
+.feedback {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.feedback.correct {
+    background: #C8E6C9;
+    color: #2E7D32;
+}
+
+.feedback.incorrect {
+    background: #FFCDD2;
+    color: #C62828;
+}
+
+@media (max-width: 600px) {
+    .answer-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .answer-btn {
+        width: 80%;
+        max-width: 300px;
+    }
+}
