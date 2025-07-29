@@ -149,7 +149,7 @@ function speakText() {
         
         // ตั้งค่าเสียง
         currentSpeech.lang = 'th-TH'; // ภาษาไทย
-        currentSpeech.rate = 1.2; // ความเร็วในการอ่าน
+        currentSpeech.rate = 1; // ความเร็วในการอ่าน
         currentSpeech.pitch = 1; // ระดับเสียง
         currentSpeech.volume = 1; // ระดับความดัง
         
