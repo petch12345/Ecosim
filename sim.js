@@ -359,7 +359,7 @@ function analyzeResults(data) {
         } else {
             balance = 'ไม่สมดุล';
             sustainability = 'ไม่ยั่งยืน';
-            recommendation = 'ระบบนิเวศไม่สมดุล ควรเพิ่มจำนวนพืชหรือปรับปรุงสภาพแวดล้อม';
+            recommendation = 'ระบบนิเวศไม่สมดุล ปรับปรุงสภาพแวดล้อม';
         }
     } else if (avgPlants <= 0) {
         recommendation = 'พืชสูญพันธุ์ - ควรเพิ่มปริมาณแสงแดดและน้ำ';
