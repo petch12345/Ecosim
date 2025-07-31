@@ -247,7 +247,7 @@ function simulateEcosystem(initialValues) {
         
         const plantsEaten = Math.min(plants * 0.3, herbivores * 0.5);
         
-        const herbivoreBirthRate = Math.min(plantsEaten / herbivores, 0.2) || 0;
+        const herbivoreBirthRate = Math.min(plantsEaten / herbivores, 0.1) || 0;
         const newHerbivores = herbivores * herbivoreBirthRate;
         
         const herbivoresEaten = Math.min(herbivores * 0.2, carnivores * 0.3);
