@@ -247,12 +247,12 @@ function simulateEcosystem(initialValues) {
         
         const plantsEaten = Math.min(plants * 0.3, herbivores * 0.5);
         
-        const herbivoreBirthRate = Math.min(plantsEaten / herbivores, 0.3) || 0;
+        const herbivoreBirthRate = Math.min(plantsEaten / herbivores, 0.2) || 0;
         const newHerbivores = herbivores * herbivoreBirthRate;
         
         const herbivoresEaten = Math.min(herbivores * 0.2, carnivores * 0.3);
         
-        const carnivoreBirthRate = Math.min(herbivoresEaten / carnivores, 0.05) || 0;
+        const carnivoreBirthRate = Math.min(herbivoresEaten / carnivores, 0.1) || 0;
         const newCarnivores = carnivores * carnivoreBirthRate;
         
         plants = Math.max(0, plants + newPlantGrowth - plantsEaten);
@@ -446,7 +446,7 @@ function resetSimulation() {
     
     // รีเซ็ตค่าในฟอร์ม
     document.getElementById('plants').value = 100;
-    document.getElementById('herbivores').value = 50;
+    document.getElementById('herbivores').value = 500;
     document.getElementById('carnivores').value = 20;
     document.getElementById('sunlight').value = 80;
     document.getElementById('water').value = 70;
