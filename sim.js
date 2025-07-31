@@ -446,12 +446,12 @@ function resetSimulation() {
     
     // รีเซ็ตค่าในฟอร์ม
     document.getElementById('plants').value = 100;
-    document.getElementById('herbivores').value = 500;
-    document.getElementById('carnivores').value = 20;
+    document.getElementById('herbivores').value = 50;
+    document.getElementById('carnivores').value = 5;
     document.getElementById('sunlight').value = 80;
     document.getElementById('water').value = 70;
-    document.getElementById('sunlight-value').textContent = '80%';
-    document.getElementById('water-value').textContent = '70%';
+    document.getElementById('sunlight-value').textContent = '40%';
+    document.getElementById('water-value').textContent = '40%';
     
     // รีเซ็ตสถานะ
     updateStatus('พร้อมเริ่มการจำลอง');
